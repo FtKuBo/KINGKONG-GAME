@@ -1,7 +1,7 @@
 import pygame
 import random
 class Jeu:
-
+#very ugly code didn't add any comments for the moment
     def __init__ (self):
         self.change = False
         self.change2 = False
@@ -43,6 +43,7 @@ class Jeu:
             sng.pos = (sng.pos[0] + 3, sng.pos[1])
         if touchesPressees[pygame.K_a] == True and sng.pos[0] > 0:
             sng.pos = (sng.pos[0] - 3, sng.pos[1])
+
     def redefinesolo(self,grll,gameaff,prj):
         gameaff.r_pos = (365, 540)
         gameaff.L_pos = (190, 0)
@@ -58,6 +59,7 @@ class Jeu:
         for i in range(10):
             prj.nxlis.append(prj.lis.pop(random.randint(0, len(prj.lis) - 1)))
         gameaff.barre_de_vie_solo(grll)
+
     def redefineduo(self,grll,sng,gameaff,prj):
         gameaff.p_pos = (460, 0)
         gameaff.g_pos = (460, 0)
@@ -101,12 +103,14 @@ pygame.mixer.init()
 pygame.display.set_caption("GORILLA")
 pygame.display.set_icon(gameaff.img)
 #boucle de tout le jeu
+
 while game.variable == 1:
     #pygame.mixer.music.play(3000, 0, 5000)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game.continuer = 0
             pygame.quit()
+
     while game.continuer == 1:
         gameaff.ecranacceuil(game)
 
@@ -126,14 +130,17 @@ while game.variable == 1:
                             prj.vel = 5
                             game.continuer -= 1
                             game.redefinesolo(grll,gameaff,prj)
+
         pygame.display.flip()
         anim.comptearebour(game, gameaff)
         game.gererClavierSouris(grll)
         prj.affichagage()
         grll.uppoints(prj)
         grll.downpointssolo(nx,game,gameaff,prj)
+
         if grll.health <= 0:
             game.continuer += 8
+            
         elif grll.score == 8:
             game.redefinesolo(grll,gameaff,prj)
             game.continuer += 2
@@ -141,8 +148,10 @@ while game.variable == 1:
 
     while game.continuer == 3:
         anim.defaitesolo(game,gameaff,prj,grll)
+
     while game.continuer== 4:
         anim.victoiresolo(game,gameaff,prj,grll)
+
     while game.continuer == 5:
         game.clock.tick(game.FPS)
         gameaff.dessiner2(grll,sng,bnn,nx,prj)
@@ -158,6 +167,7 @@ while game.variable == 1:
                             # button_sound.play()
                             game.continuer-=4
                             game.redefineduo(grll,sng,gameaff,prj)
+
         pygame.display.flip()
         anim.comptearebour(game, gameaff)
         game.gererClavierSourismulti(sng,grll)
@@ -166,28 +176,37 @@ while game.variable == 1:
         sng.uppoints(prj)
         grll.downpointsduo(nx,game,gameaff,sng,prj)
         sng.downpoints(nx,game,gameaff,grll,prj)
+
         if grll.health <= 0 or sng.health <= 0:  # envoire vers une autre boucle
             game.continuer += 4
+        
         elif sng.score > 4:  # le singe gagne
             game.redefineduo(grll,sng,gameaff,prj)
             game.continuer+=2
+        
         elif grll.score > 4:
             game.redefineduo(grll, sng, gameaff, prj)
             game.continuer += 1
+        
         elif grll.score == sng.score == 4 or grll.health == sng.health == 0:
             game.redefineduo(grll, sng, gameaff,prj)
             game.continuer += 3
 
     while game.continuer == 6:
         anim.victoiregorille(game,gameaff,grll,sng,prj)
+    
     while game.continuer == 7:
         anim.victoiresinge(game,gameaff,grll,sng,prj)
+    
     while game.continuer == 8:
         anim.egalite(game,gameaff)
+    
     while game.continuer == 9:
         anim.deathduo(game,gameaff,grll,sng,bnn,nx,prj)
+    
     while game.continuer == 10:
         anim.deathsolo(game,gameaff,grll,bnn,nx,prj)
+    
     while game.continuer == 11:
         gameaff.parametrage()
         for event in pygame.event.get():
