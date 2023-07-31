@@ -1,3 +1,3 @@
 # KINGKONG-GAME
-Jeu codé en python au lycée
+High school code
 
