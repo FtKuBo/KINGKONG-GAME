@@ -1,6 +1,6 @@
 # KINGKONG-GAME
-High school code
+2D GAME COMPLETLY ENGINEERED USING PYGAME
 
-[!pic1!](../KingKongGamePicture.png)
-[!pic2!](../KingKongGamePicture2.png)
+[!pic1!](KingKongGamePicture.png)
+[!pic2!](KingKongGamePicture2.png)
 
