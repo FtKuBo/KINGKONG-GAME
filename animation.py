@@ -194,7 +194,6 @@ class Animation:
                 if grll.pos[1] == 600:
                     game.redefineduo(grll,sng,gameaff,prj)
                     game.continuer -= 2
-                    print("j'aime les beate")
                 break
 
 
@@ -211,7 +210,6 @@ class Animation:
                 if sng.pos[1] == 600:
                     game.redefineduo(grll,sng,gameaff,prj)
                     game.continuer -= 3
-                    print("j'aime les beates")
                 break
         pygame.display.update()
 import main

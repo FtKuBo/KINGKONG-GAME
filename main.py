@@ -219,7 +219,6 @@ while game.variable == 1:
                     if pygame.mouse.get_pressed()[0]:
                         if x > 840 and x < 890 and y > 75 and y < 125:
                             # button_sound.play()
-                            print("pressé")
                             game.continuer = 1
         pygame.display.flip()
 
