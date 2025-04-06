@@ -13,5 +13,5 @@ Run the game:
 python main.py
 ```
 
-## 📷 Example Output
+## 🎥 Video Demo
 https://github.com/FtKuBo/KINGKONG-GAME/assets/116817411/ca567ad0-d996-40f3-8edd-33de9e06b3b2
